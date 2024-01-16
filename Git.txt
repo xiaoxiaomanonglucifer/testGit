@@ -1,0 +1,44 @@
+创建Git账号
+一、设置用户名和用户邮箱
+	用下面的指令1.git config --global user.name “itcast”
+		     2.git config --global user.email “hello@itcast.cn”
+创建一个Git本地仓库
+	一、在电脑任意地方创建一个空目录。
+	二、在这个目录下点击右键打开Git bash窗口
+	三、执行命令git init
+	四、创建成功后会有一个.git文件夹
+创建一个git远程仓库(码云gitee)
+	一、选择ssh
+	二、配置ssh公钥
+	三、用ssh-keygen -t rsa命令 不断回车
+	四、Gitee设置账户共公钥 用cat ~/.ssh/id_rsa.pub
+	五、将第四步回去的粘贴到gitee设置中的ssh公钥框中
+	六、验证是否成功 Hi 曾先生! You've successfully authenticated, but GITEE.COM does not provide shell access.
+操作远程仓库
+	一、添加远程仓库
+		a、先初始化本地库，再与已创建的远程库进行对接命令:命令： git remote add <远端名称> <仓库路径>
+	    							 git remote add origin(远端名称默认) git@gitee.com:czbk_zhang_meng/git_test.git(仓库路径)
+	二、查看远程仓库 命令：git remote是否有origin弹出
+	三、推送到远程仓库 命令：git push [-f] [--set-upstream] [远端名称 [本地分支名][:远端分支名] ]
+			-f 表示强制覆盖	--set-upstream 推送到远端的同时并且建立起和远端分支的关联关系。
+	
+
+把本地文件添加进Git 三步走
+	一、git add . 先把本地仓库即(工作区)的东西提高到仓库之前的暂存区
+	二、git commit -m "code" 修改进入到仓库    "code"属于一个备注。
+ 	git add (工作区 --> 暂存区)
+ 	git commit (暂存区 --> 本地仓库)
+	三、git push origin master   就把本地的master分支的文件推到了仓库的origin
+修改git里面的文件
+	用指令vi 文件名 
+	Esc :wq保存
+把Git仓库的东西克隆到本地clone
+	git clone  地址ssh的  指定在本地的文件夹名字
+将远程仓库的修改更新到本地
+	git pull 拉取过来
+	或者git fetch +git merge
+
+	本地比远端新、push
+	本地没有远端新、pull
+	本地和远端冲突、解决冲突文件 add、 commit、 本地此时更新、在进行push
+
